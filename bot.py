@@ -30,13 +30,34 @@ logger = logging.getLogger(__name__)
 # /start command အတွက် function
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user = update.effective_user
+
+    # Bot ကနေ ပြန်ပို့ချင်တဲ့ စာသားကို ဒီမှာစုရေးထားပါတယ်
+    welcome_message = f"""မင်္ဂလာပါ {user.mention_html()}!
+
+VIPဝင်ရန် ​အောက်ပါအ​ကောင့်များသို့ ဝင်ကြေး တစ်​သောင်းကျပ်လွှဲပြီး ​ပြေစာကို ယခုBotသို့ ပို့​ပေးပါ။
+​ပြေစာပို့ပြီး မိနစ်ပိုင်း (သို့မဟုတ်) နာရီပိုင်းအတွင်း VIP channel invite linkများ ပို့​ပေးပါမယ်။
+
+​ငွေလွှဲ​ပြေစာကို AIနဲ့စစ်ပြီးမှ adminစီကို ​ရောက်တာမလို့
+- ​​ကြည်လင်ပျက်သားတဲ့ ​​ငွေလွှဲပြေစာကို ပို့​ပေးပါ။
+- ​ငွေလွှဲသည့်အခါ တစ်​သောင်းကျပ်ကို အတိအကျ လွှဲ​ပေးပါ။
+
+<b>Kpay</b>
+Kaung Khant Wai
+09123456789
+
+<b>Wave</b>
+Kaung Khant Wai
+09123456789
+"""
+
+    # စာသားကို user ဆီ ပို့လွှတ်ပါမယ်
     await update.message.reply_html(
-        f"မင်္ဂလာပါ {user.mention_html()}!",
+        text=welcome_message,
     )
 
 # File တွေပို့လာရင် ထိန်းချုပ်မယ့် function
 async def handle_file(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text("File များလက်မခံပါ။")
+    await update.message.reply_text("အမှားအယွင်း ဖြစ်ပွားသွားပါတယ်။ ​ခဏ​နေမှ ပြန်လည်ကြိုးစားကြည့်ပါ (သို့မဟုတ်) ​ပြေစာကို ပြန်လည်စစ်​ဆေးကြည့်ပါ။")
 
 def main() -> None:
     # --- အရေးကြီးတဲ့ အပြောင်းအလဲ ---
